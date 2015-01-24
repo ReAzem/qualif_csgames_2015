@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+ <h1>Affichage des competitions</h1>
+<table border="1">
+    <th>titre de la competition</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Participants</th>
+    {% for competition in competitions %}
+    <tr>
+        <td><a href="/competition/{{ competition['name'] }}">{{ competition['name'] }}</a></td>
+        <td>{{ competition['date'] }}</td>
+        <td>{{ competition['time'] }}</td>
+        <td>{{ competition['participants'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

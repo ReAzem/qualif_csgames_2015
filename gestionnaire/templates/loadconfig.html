@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+ <h1>Chargement du ficher config.json</h1>
+ Entrez le contenu de config.json.
+ <form action ="/loadconfig" method="POST" id="jsoninputform">
+     <textarea rows="4" cols="50" name="configuration" form="jsoninputform"></textarea>
+     <input type="submit">
+ </form>
+{% endblock %}

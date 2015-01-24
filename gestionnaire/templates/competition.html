@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+ <h1>Affichage d'une competition ({{ competition['name'] }})</h1>
+Nom: {{ competition['name'] }}<br>
+date: {{ competition['date'] }}<br>
+time: {{ competition['time'] }}<br>
+index: {{ competition['index'] }}<br><br>
+
+Participants:
+<ul>
+    {% for participant in competition['participants'] %}
+    <li>
+          <form action ="/unassign" method="POST" id="jsoninputform">
+             {{ participant }}
+             <input type="hidden" name="participant_name" value="{{ participant }}">
+             <input type="hidden" name="competition_index" value="{{ competition['index'] }}">
+             <input type="submit" value="unassign">
+         </form>
+    </li>
+    {% endfor %}
+</ul>
+
+<br><br><br>
+participants qui la veulent (en ordre de qui qui la veux le plus):
+ <ul>
+     {% for participant in participants_qui_la_veulent %}
+     <li>
+         <form action ="/assign" method="POST" id="jsoninputform">
+             {{ participant['name'] }}
+             <input type="hidden" name="participant_name" value="{{ participant['name'] }}">
+             <input type="hidden" name="competition_index" value="{{ competition['index'] }}">
+             <input type="submit" value="assign">
+         </form>
+     </li>
+     {% endfor %}
+ </ul>
+{% endblock %}

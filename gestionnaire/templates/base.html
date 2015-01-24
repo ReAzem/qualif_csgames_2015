@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+Menu:
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/loadconfig">Chargement de config.json</a></li>
+    <li><a href="/participants">Affichage des participants</a></li>
+    <li><a href="/competitions">Affichage des competitions</a></li>
+    <li><a href="/horraire">Horraire</a></li>
+    <li><a href="/export">Exportation des assignations</a></li>
+</ul>
+
+{% if message %}
+{{ message }}
+{% endif %}
+
+{% block content %}{% endblock %}
+</body>
+</html>

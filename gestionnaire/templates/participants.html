@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+ <h1>Affichage des participants</h1>
+<table border="1">
+    <th>Nom du participant</th>
+    <th>Competitions assignees</th>
+    {% for participant in participants %}
+    <tr>
+        <td><a href="/participant/{{ participant['name'] }}">{{ participant['name'] }}</a></td>
+        <td>{{ participant['nb_competitions'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

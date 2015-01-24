@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+ <h1>Affichage d'un participant ({{ participant['name'] }})</h1>
+Nom: {{ participant['name'] }}<br>
+Preferences: {{ participant['preferences'] }}<br>
+nb_competitions: {{ participant['nb_competitions'] }}<br>
+{% endblock %}

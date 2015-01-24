@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+ <h1>Affichage de l'horraire</h1>
+
+{% for day in ['Friday', 'Saturday', 'Sunday'] %}
+    <br><br><br><br><br>
+    <h2>{{ day }}</h2>
+    {% for time in ['Morning', 'Evening', 'Afternoon'] %}
+        <h3>{{ time }}</h3>
+        {% for competition in competitions %}
+            {% if competition['date'] == day and competition['time'] == time %}
+                <h4>{{ competition['name'] }}</h4> (participants: {{ competition['participants'] }})
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endfor %}
+
+{% endblock %}
